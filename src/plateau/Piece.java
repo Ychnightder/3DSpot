@@ -2,9 +2,8 @@ package plateau;
 
 public class Piece {
 
-    public String[] getPiece() {
-        return piece;
-    }
+
+
 
     private String value;
     private String[] piece;
@@ -35,5 +34,23 @@ public class Piece {
 
     private boolean isValidPosition(int x, int y) {
         return x >= 0 && y >= 0 && x < 9 && y < 9;
+    }
+
+    public int[] getPosition1() {
+        return new int[]{x1, y1};
+    }
+
+    public int[] getPosition2() {
+        return new int[]{x2, y2};
+    }
+
+
+    public String[] getPiece() {
+        return piece;
+    }
+
+
+    public String getValue() {
+        return value;
     }
 }
