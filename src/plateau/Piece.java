@@ -3,8 +3,6 @@ package plateau;
 public class Piece {
 
 
-
-
     private String value;
     private String[] piece;
 
@@ -33,7 +31,7 @@ public class Piece {
 
 
     private boolean isValidPosition(int x, int y) {
-        return x >= 0 && y >= 0 && x < 9 && y < 9;
+        return x >= 0 && y >= 0 && x < 13 && y < 13; // Modifié pour s'adapter à la taille 13x13
     }
 
     public int[] getPosition1() {

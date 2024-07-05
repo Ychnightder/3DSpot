@@ -6,11 +6,11 @@ public class testCarre {
     @Test
     public void testCarre() {
         Plateau plateau = new Plateau();
+        plateau.chercherPositionLibre();
+        System.out.println(plateau);
 
 
-    }
-}
-
+//
 //        int taille = 13;
 //        int[][] tableau = new int[taille][taille];
 //
@@ -22,13 +22,6 @@ public class testCarre {
 //            }
 //        }
 //
-//        // Affichage du tableau pour vérification (optionnel)
-//        for (int i = 0; i < taille; i++) {
-//            for (int j = 0; j < taille; j++) {
-//                System.out.print(tableau[i][j] + "\t");
-//            }
-//            System.out.println();
-//        }
 //
 //        System.out.println("Centres des grandes cases:");
 //        // Parcourir et afficher les centres des grandes cases
@@ -40,6 +33,10 @@ public class testCarre {
 //            }
 //        }
 //    }
+    }
+}
+
+
 
 
 //        * * * * *
