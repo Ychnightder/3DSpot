@@ -1,14 +1,24 @@
 package plateau;
 import org.junit.Test;
 
+import java.util.Scanner;
+
 
 public class testCarre {
     @Test
     public void testCarre() {
         Plateau plateau = new Plateau();
-        plateau.chercherPositionLibre();
-        System.out.println(plateau);
+         Piece pieceRouge;
+         Piece pieceBlanc;
+         Piece pieceBleu;
 
+        pieceRouge = new Piece(2, 6, 2, 10, "R");
+        pieceBlanc = new Piece(6, 6, 6, 10, "W");
+        pieceBleu = new Piece(10, 6, 10, 10, "B");
+
+        plateau.placerPiece(pieceRouge);
+        plateau.placerPiece(pieceBlanc);
+        plateau.placerPiece(pieceBleu);
 
 //
 //        int taille = 13;

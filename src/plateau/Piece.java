@@ -8,20 +8,20 @@ public class Piece {
 
     private int x1 ,y1,x2,y2;
 
-    public Piece(int x1, int y1,  int x2, int y2, String value) throws  IllegalArgumentException {
+
+    public Piece(int x1, int y1, int x2, int y2, String value) throws  IllegalArgumentException {
         if (!isValidPosition(x1, y1) || !isValidPosition(x2, y2)) {
             this.piece = null;
             throw new IllegalArgumentException("Error: x or y is invalid");
         }
         else {
             this.piece = new String[2];
-            this.piece[0] = value;
-            this.piece[1] = value;
-            this.x1 = x1;
-            this.y1 = y1;
-            this.x2 = x2;
-            this.y2 = y2;
             this.value = value;
+            this.piece[0] = this.value;
+            this.piece[1] = this.value;
+
+            setPosition1(x1, y1);
+            setPosition2(x2, y2);
         }
     }
 
@@ -42,6 +42,16 @@ public class Piece {
         return new int[]{x2, y2};
     }
 
+
+    public void setPosition1(int x1 , int y1) {
+        this.x1 = x1;
+        this.y1 = y1;
+    }
+
+    public void setPosition2(int x2 , int y2) {
+        this.x2 = x2;
+        this.y2 = y2;
+    }
 
     public String[] getPiece() {
         return piece;
