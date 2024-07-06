@@ -8,9 +8,9 @@ public class testCarre {
     @Test
     public void testCarre() {
         Plateau plateau = new Plateau();
-         Piece pieceRouge;
-         Piece pieceBlanc;
-         Piece pieceBleu;
+        Piece pieceRouge;
+        Piece pieceBlanc;
+        Piece pieceBleu;
 
         pieceRouge = new Piece(2, 6, 2, 10, "R");
         pieceBlanc = new Piece(6, 6, 6, 10, "W");
@@ -19,8 +19,19 @@ public class testCarre {
         plateau.placerPiece(pieceRouge);
         plateau.placerPiece(pieceBlanc);
         plateau.placerPiece(pieceBleu);
+        plateau.chercherPositionLibre();
+        plateau.pieceSelectionner(pieceRouge);
+        plateau.mettrePoints();
+        plateau.deplacerPieceH(1, pieceRouge);
+//        plateau.mettrePoints();
+        plateau.effacerChiffre();
+        plateau.chercherPositionLibre();
+        plateau.deplacerPieceV(3, pieceBlanc);
+        plateau.effacerChiffre();
+        plateau.mettrePoints();
+        System.out.println(plateau);
 
-//
+
 //        int taille = 13;
 //        int[][] tableau = new int[taille][taille];
 //
@@ -42,7 +53,6 @@ public class testCarre {
 //                System.out.println("Centre de la grande case (" + i + ", " + j + "): " + " " +centreX+" " + centreY + " " +  tableau[centreX][centreY]);
 //            }
 //        }
-//    }
     }
 }
 
@@ -60,3 +70,18 @@ public class testCarre {
 //        *       *
 //        *       *
 //        * * * * *
+
+
+//        * * * * * * * * * * * * *
+//        *       *       *       *
+//        *   R   *   R   *       *
+//        *       *       *       *
+//        * * * * * * * * * * * * *
+//        *       *       *       *
+//        *   W   *       *       *
+//        *       *       *       *
+//        * * * * * * * * * * * * *
+//        *       *       *       *
+//        *   W   *   B   *   B   *
+//        *       *       *       *
+//        * * * * * * * * * * * * *

@@ -18,6 +18,7 @@ public class Plateau {
     }
 
     public void initialiserPlateau() {
+        plateau[2][10] = "O ";
         for (int i = 0; i < TAILLE; i++) {
             for (int j = 0; j < TAILLE ; j++) {
                 if (i % ( TAILLECASE + 1) == 0 || j % ( TAILLECASE + 1) == 0) {
@@ -45,7 +46,7 @@ public class Plateau {
             for (int j = 0; j < 3; j++) {
                 int centreX = i * 4 + 2;
                 int centreY = j * 4 + 2;
-                if (plateau[centreX][centreY].equals("  ")) {
+                if (plateau[centreX][centreY].equals("  ") || plateau[centreX][centreY].equals("O ")) {
                     positionPosible.put(compteur, new int[]{centreX, centreY});
                     plateau[centreX][centreY] = compteur + " ";
                     compteur++;
@@ -78,18 +79,22 @@ public class Plateau {
     }
 
 
-//    public void deplacerPiece(int i, Piece piece) {
-//        int[] nouvellePosition = positionPosible.get(i);
-//        int centreX = nouvellePosition[0];
-//        int centreY = nouvellePosition[1];
-//
-//        if (centreY + 4 < TAILLE && plateau[centreX][centreY + 4].equals("  ")) {
-//            deplacerPieceH(i, piece);
-//        }
-//        if (centreX + 4 < TAILLE && plateau[centreX + 4][centreY].equals("  ")) {
-//            deplacerPieceV(i, piece);
-//        }
-//    }
+    public void deplacerPiece(int i, Piece piece) {
+        int[] nouvellePosition = positionPosible.get(i);
+        int centreX = nouvellePosition[0];
+        int centreY = nouvellePosition[1];
+
+        boolean peutDeplacerHorizontalement = centreY + 4 < TAILLE && plateau[centreX][centreY + 4].equals("  ");
+        boolean peutDeplacerVerticalement = centreX + 4 < TAILLE && plateau[centreX + 4][centreY].equals("  ");
+
+        if (peutDeplacerHorizontalement && peutDeplacerVerticalement) {
+            deplacerPieceH(i, piece);
+        } else if (peutDeplacerHorizontalement) {
+            deplacerPieceH(i, piece);
+        } else if (peutDeplacerVerticalement) {
+            deplacerPieceV(i, piece);
+        }
+    }
 
 
     public void deplacerPieceH(int i, Piece piece) {
